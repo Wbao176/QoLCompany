@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QoL 合同会社 - Website Design</title>
+
+    <!-- Google Fonts Integration -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General body styling with Lato font */
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Header section */
+        header {
+            background: white;
+            padding: 1rem 3rem; /* Adjust for uniform padding */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+        /* Logo styling */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #2e7d32;
+        }
+
+        .logo-text p {
+            font-family: 'Lato', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: #666;
+        }
+
+        /* Navigation bar */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem; /* Adjust the gap for uniform spacing */
+            margin-left: 50px;
+        }
+
+        .nav-links li a {
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+            color: #2e7d32; /* Green for links */
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        /* Active link styling */
+        .nav-links li a.active {
+            color: #388e3c;
+        }
+
+        .nav-links li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #388e3c;
+        }
+
+        .nav-links li a:hover {
+            color: #388e3c;
+        }
+
+        /* Contact button styling */
+        .contact-btn {
+            background-color: #388e3c;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: #2e7d32;
+        }
+
+        /* Contact Page Styles */
+        .contact-page {
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 80px; /* Offset for the fixed header */
+        }
+
+        .contact-page h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+
+        .contact-page p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        .contact-form button {
+            background-color: #388e3c;
+            color: white;
+            padding: 0.75rem;
+            border-radius: 30px;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #2e7d32;
+        }
+                /* Box for Company Information */
+                .info-box {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #e3fdf1;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box h3 {
+            font-size: 1.5rem;
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+
+        .info-box p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .info-box a {
+            color: #2e7d32;
+            text-decoration: none;
+        }
+                /* Footer Section */
+                footer {
+            background-color: #2e7d32; /* Dark green background */
+            color: white;
+            padding: 3rem 2rem;
+            text-align: left;
+        }
+                /* Container for the privacy policy section */
+                .privacy-policy-container {
+            margin: 50px auto;
+            padding: 20px;
+            max-width: 600px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Heading styling */
+        .privacy-policy-container h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+
+        .policy-content {
+            margin-bottom: 20px;
+        }
+
+        .policy-item {
+            margin-bottom: 20px;
+        }
+
+        .policy-item h3 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 10px;
+            border-left: 4px solid #2e7d32;
+            padding-left: 10px;
+        }
+
+        .policy-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Checkbox styling */
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-container input {
+            width: 20px;
+            height: 20px;
+        }
+
+        .checkbox-container label {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-left {
+            font-size: 1rem;
+        }
+
+        .footer-left p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .news-items {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .news-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="QoL 合同会社 Logo">
+                <div class="logo-text">合同会社
+                    <p>Quality of Life</p>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="Business.html">Business</a></li>
+                <li><a href="lineup.html">Line Up</a></li>
+                <li><a href="company.html">Company</a></li>
+                <li><a href="News.html">News</a></li>
+            </ul>
+            <a href="Contact.html">
+                <button class="contact-btn" class="active">Contact</button>
+            </a>
+        </div>
+    </header>
+
+    <!-- Contact Page Section -->
+    <section class="contact-page">
+        <h2>Contact Us</h2>
+                <!-- Company Information Box -->
+                <div class="info-box">
+                    <h3>Our Company Information</h3>
+                    <p><strong>Company Name:</strong> QoL 合同会社</p>
+                    <p><strong>Address:</strong> 〒542-0083 大阪府大阪市中央区東心斎橋2丁目5-3 - 玉屋町VIPビル６１０</p>
+                    <p><strong>Phone:</strong> 080-9718-8329</p>
+                    <p><strong>Email:</strong> q.bui@qol.email</a>
+                </div>
+        <br>
+        <p>下記のお問い合わせフォームに必要事項を入力し、「送信する」をクリックしてください。
+            折り返し、メールまたはお電話にてご連絡させていただきます。
+            2-3日経過しても連絡がない場合は直接お電話にてお問い合わせください。
+            
+            </p>
+            </br>
+        <form class="contact-form" action="https://formspree.io/f/movazapo" method="POST">
+            <input type="text" name="company" placeholder="会社名" required>
+            <input type="text" name="Name" placeholder="担当者名" required>
+            <input type="email" name="email" placeholder="メールアドレス" required>
+            <input type="tel" name="phone" placeholder="電話番号">
+            <input type="text" name="address" placeholder="住所">
+            <textarea name="message" placeholder="お問い合わせ内容" required></textarea>
+                <!-- Privacy Policy Section -->
+    <div class="privacy-policy-container">
+        <h2>個人情報保護方針</h2>
+        <div class="policy-content">
+            <div class="policy-item">
+                <h3>個人情報の管理</h3>
+                <p>弊社は、お客さまの個人情報を正確かつ最新の状態に保ち、個人情報への不正アクセス・紛失・破損・改ざん・漏洩などを防止するため、セキュリティシステムの維持・管理体制の整備・社員教育の徹底等の必要な措置を講じ、安全対策を実施し個人情報の厳重な管理を行ないます。
+
+                </p>
+            </div>
+            <div class="policy-item">
+                <h3>個人情報の利用目的
+                </h3>
+                <p>お客さまからお預かりした個人情報は、弊社からのご連絡や業務のご案内やご質問に対する回答として、電子メールや資料のご送付に利用いたします。
+
+                </p>
+            </div>
+
+            <div class="policy-item">
+                <h3>個人情報の第三者への開示・提供の禁止
+                </h3>
+                <p>弊社は、お客さまよりお預かりした個人情報を適切に管理し、次のいずれかに該当する場合を除き、個人情報を第三者に開示いたしません。
+
+                    お客さまの同意がある場合
+                    お客さまが希望されるサービスを行うために弊社が業務を委託する業者に対して開示する場合法令に基づき開示することが必要である場合</p>
+            </div>
+            <div class="policy-item">
+                <h3>個人情報の安全対策
+                </h3>
+                <p>弊社は、個人情報の正確性及び安全性確保のために、セキュリティに万全の対策を講じています。
+
+                </p>
+            </div>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="agree" name="agree">
+            <label for="agree">上記、個人情報保護方針に同意しました</label>
+        </div>
+    </div>
+            <button type="submit">送信</button>
+        </form>
+    </section>
+
+
+       <!-- Footer Section -->
+   <footer>
+    <div class="footer-container">
+        <div class="footer-left">
+            <p>株式会社 QoL 合同会社</p>
+            <p>Tel: 072-649-2610</p>
+            <p>〒568-0097 大阪府茨木市桑原1214</p>
+            <br><h3>                © 2024 QoL 合同会社. All rights reserved.
+            </h3> </br>
+        </div>
+        <ul class="footer-links">
+            <li><a href="Homepage.html">ホーム</a></li>
+            <li><a href="Business.html">事業内容</a></li>
+            <li><a href="Lineup.html">取扱いラインナップ</a></li>
+            <li><a href="Company.html">会社概要</a></li>
+            <li><a href="News.html">お知らせ</a></li>
+            <li><a href="Contact.html">お問い合わせ</a></li>
+            
+        </ul>
+        </div>
+    </footer>
+</body>
+</html>
