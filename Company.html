@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QoL 合同会社 - Website Design</title>
+
+    <!-- Google Fonts Integration -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General body styling with Lato font */
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Header section */
+        header {
+            background: white;
+            padding: 1rem 3rem; /* Adjust for uniform padding */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+        /* Logo styling */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #2e7d32;
+        }
+
+        .logo-text p {
+            font-family: 'Lato', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: #666;
+        }
+
+        /* Navigation bar */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem; /* Adjust the gap for uniform spacing */
+            margin-left: 50px;
+        }
+
+        .nav-links li a {
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+            color: #2e7d32; /* Green for links */
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        /* Active link styling */
+        .nav-links li a.active {
+            color: #388e3c;
+        }
+
+        .nav-links li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #388e3c;
+        }
+
+        .nav-links li a:hover {
+            color: #388e3c;
+        }
+
+        /* Contact button styling */
+        .contact-btn {
+            background-color: #388e3c;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: #2e7d32;
+        }
+        /* Hero Section */
+        .company-hero {
+            height: 50vh;
+            background: url('sky.png') no-repeat center center/cover; /* Background image for the hero section */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            margin-top: 60px; /* Offset for the fixed header */
+        }
+
+        .company-hero h1 {
+            font-size: 3rem;
+            z-index: 1;
+        }
+        /* Breadcrumb */
+        .breadcrumb {
+            margin: 2rem 2rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            color: #388e3c;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+            color: #2e7d32;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Company Description Section */
+        .company-description {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .company-description h2 {
+            font-size: 2.5rem;
+            color: #2e7d32;
+            margin: 20px 0;
+            width: 100%; /* Full width on smaller screens */
+        }
+
+        .company-description p {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .company-description img {
+            width: 50%; /* Adjust based on content */
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Overview Section */
+        .overview-section {
+            background-color: #ffffff;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .overview-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            color: #2e7d32;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .overview-table {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        .overview-table th,
+        .overview-table td {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .overview-table th {
+            background-color: #2e7d32;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .overview-table td {
+            background-color: #e3fdf1;
+            font-size: 1rem;
+        }
+
+        .map-section {
+            padding: 2rem;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .map-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Responsive design for map */
+        @media (max-width: 768px) {
+        .map-section iframe {
+            height: 300px;
+        }
+        }   
+
+
+        /* Footer Section */
+        footer {
+            background-color: #2e7d32;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+                /* Footer Section */
+                footer {
+            background-color: #2e7d32; /* Dark green background */
+            color: white;
+            padding: 3rem 2rem;
+            text-align: left;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-left {
+            font-size: 1rem;
+        }
+
+        .footer-left p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .news-items {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .news-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="QoL 合同会社 Logo">
+                <div class="logo-text">合同会社
+                    <p>Quality of Life</p>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="Business.html">Business</a></li>
+                <li><a href="Lineup.html" >Line Up</a></li>
+                <li><a href="Company.html" class="active">Company</a></li>
+                <li><a href="News.html">News</a></li>
+            </ul>
+            <a href="Contact.html">
+                <button class="contact-btn">Contact</button>
+            </a>
+        </div>
+    </header>
+
+    <section class="company-hero">
+        <h1>Company / 会社概要
+        </h1>
+    </section>
+    
+        <!-- Breadcrumb Navigation -->
+        <div class="breadcrumb">
+            <a href="Homepage.html">ホーム</a> > 事業内容
+        </div>
+    
+
+    <section class="company-description">
+        <h2>お客様に最高の満足を</h2>
+        <p>創業以来、弊社は地域密着型企業で40年に渡り事業を展開しています。...</p>
+        <img src="cityscape.jpg" alt="Cityscape" />
+    </section>
+
+    <section class="overview-section">
+        <h2>会社概要 - OVERVIEW</h2>
+        <table class="overview-table">
+            <tr>
+                <th>商号</th>
+                <td>QOL 合同会社</td>
+            </tr>
+            <tr>
+                <th>所在地</th>
+                <td>〒542-0083　 
+                    大阪府大阪市中央区東心斎橋2丁目5-3 - 玉屋町VIPビル６１０
+                    
+                    </td>
+            </tr>
+            <tr>
+                <th>TEL</th>
+                <td>080-9718-8329</td>
+            </tr>
+
+            <tr>
+                <th>代表者</th>
+                <td>レー　ブイ　ニュー　クイン</td>
+            </tr>
+            <tr>
+                <th>創業</th>
+                <td>令和6年6月12日</td>
+            </tr>
+            <tr>
+                <th>営業内容</th>
+                <td>100万円</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="map-section">
+        <h2>Our Location</h2>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.3288202099843!2d135.5014991755447!3d34.67164967293004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e715d29690c5%3A0xd4c08897bb993e45!2sTamayamachi%20Vip%20Building%2C%202-ch%C5%8Dme-5-3%20Higashishinsaibashi%2C%20Chuo%20Ward%2C%20Osaka%2C%20542-0083%2C%20Japan!5e0!3m2!1sen!2s!4v1725963088103!5m2!1sen!2s"                
+                width="100%"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+ 
+   <!-- Footer Section -->
+   <footer>
+    <div class="footer-container">
+        <div class="footer-left">
+            <p>株式会社 QoL 合同会社</p>
+            <p>Tel: 072-649-2610</p>
+            <p>〒568-0097 大阪府茨木市桑原1214</p>
+            <br><h3>                © 2024 QoL 合同会社. All rights reserved.
+            </h3> </br>
+        </div>
+        <ul class="footer-links">
+            <li><a href="Homepage.html">ホーム</a></li>
+            <li><a href="Business.html">事業内容</a></li>
+            <li><a href="Lineup.html">取扱いラインナップ</a></li>
+            <li><a href="Company.html">会社概要</a></li>
+            <li><a href="News.html">お知らせ</a></li>
+            <li><a href="Contact.html">お問い合わせ</a></li>
+            
+        </ul>
+        </div>
+    </footer>
+
+</body>
+</html>

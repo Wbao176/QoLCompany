@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QoL 合同会社 - Website Design</title>
+
+    <!-- Google Fonts Integration -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General body styling with Lato font */
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Header section */
+        header {
+            background: white;
+            padding: 1rem 3rem; /* Adjust for uniform padding */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+        /* Logo styling */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #2e7d32;
+        }
+
+        .logo-text p {
+            font-family: 'Lato', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: #666;
+        }
+
+        /* Navigation bar */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem; /* Adjust the gap for uniform spacing */
+            margin-left: 50px;
+        }
+
+        .nav-links li a {
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+            color: #2e7d32; /* Green for links */
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        /* Active link styling */
+        .nav-links li a.active {
+            color: #388e3c;
+        }
+
+        .nav-links li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #388e3c;
+        }
+
+        .nav-links li a:hover {
+            color: #388e3c;
+        }
+
+        /* Contact button styling */
+        .contact-btn {
+            background-color: #388e3c;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: #2e7d32;
+        }
+        /* Hero Section for Business */
+        .business-hero {
+            height: 50vh;
+            background: url('leaf.jpg') no-repeat center center/cover; /* Use the image you uploaded as the background */
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff; /* Green text color */
+            position: relative;
+        }
+
+        /* Add a semi-transparent overlay on the background */
+        .business-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3); /* Dark overlay */
+            z-index: 1;
+        }
+
+        .business-hero h1 {
+            font-size: 3rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            z-index: 1;
+            margin-top: 5rem;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin: 2rem 2rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            color: #388e3c;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+            color: #2e7d32;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Business Section */
+        .business-section {
+            padding: 3rem 2rem;
+            text-align: left;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .business-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #2e7d32;
+            margin-bottom: 1.5rem;
+        }
+
+        .business-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .business-section img {
+            width: 100%;
+            height: 80%;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .business-hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Feature Section */
+        .feature-section {
+            padding: 5rem 2rem;
+            background-color: white;
+            text-align: left;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .feature-content {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .feature-content h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            color: #2e7d32; /* Green color */
+            margin-bottom: 3rem;
+            text-align: center;
+            margin-left: 28rem;
+        }
+
+        .feature-content h2 span {
+            color: #388e3c; /* Darker green for emphasis */
+        }
+
+        .feature-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .feature-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .feature-image {
+            flex: 2;
+            max-width: 600px;
+            margin-top: 6rem;
+        }
+
+        .feature-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .feature-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .feature-content {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+
+            .feature-image img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        /* Footer Section */
+        footer {
+            background-color: #2e7d32; /* Dark green background */
+            color: white;
+            padding: 3rem 2rem;
+            text-align: left;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-left {
+            font-size: 1rem;
+        }
+
+        .footer-left p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .news-items {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .news-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="QoL 合同会社 Logo">
+                <div class="logo-text">合同会社
+                    <p>Quality of Life</p>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="Business.html" class="active">Business</a></li>
+                <li><a href="Lineup.html">Line Up</a></li>
+                <li><a href="Company.html">Company</a></li>
+                <li><a href="News.html">News</a></li>
+            </ul>
+            <a href="Contact.html">
+                <button class="contact-btn">Contact</button>
+            </a>
+        </div>
+    </header>
+
+    <!-- Business Hero Section -->
+    <section class="business-hero">
+        <h1>Business / 事業内容</h1>
+    </section>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb">
+        <a href="Homepage.html">ホーム</a> > 事業内容
+    </div>
+
+    <!-- Business Section -->
+    <section class="business-section">
+        <h2>ワンストップ企業を目指し、
+            サービス、柔軟性、商品力に力を注ぎ日々進化</h2>
+        <p>
+            Quality of life（生活の質）の語源で私たちは個人の生活から法人の運営実現を支援すること。特に日本で生活、ビジネスをしていて、困っている外国人のために、精一杯お客さまへ寄り添うことを大事にして発展してまいりました。
+        </p>
+        <img src="company.jpg" alt="Business Image">
+        <p>
+            お客様の生活をサポートするため、医療や介護、日常生活に必要な製品を幅広く提供しています。時代の流れを読み取り、柔軟に対応しながらお客様のニーズに応えることが当社の使命と考えています。
+        </p>
+    </section>
+
+    <!-- Feature Section -->
+    <section class="feature-section" id="feature">
+        <div class="feature-content">
+            <h2>FEATURE -特徴-</h2>
+            <h3>1. "自社配送へのこだわり" </h3>
+            <p>お客様に寄り添ったサービスで、物流の問題を解決することを目指します。私たちは迅速な対応と、最も効果的なサービス提供を約束します。</p>
+            <h3>2. "地域密着型の販売体制"</h3>
+            <p>お客様に寄り添ったサービスで、物流の問題を解決することを目指します。私たちは迅速な対応と、最も効果的なサービス提供を約束します。</p>
+            <h3>3. "多岐にわたる充実した商品の品揃え"</h3>
+            <p>お客様に寄り添ったサービスで、物流の問題を解決することを目指します。私たちは迅速な対応と、最も効果的なサービス提供を約束します。</p>
+
+        </div>
+        <div class="feature-image">
+            <img src="delivery.jpg" alt="Feature Image">
+        </div>
+    </section>
+
+   <!-- Footer Section -->
+   <footer>
+    <div class="footer-container">
+        <div class="footer-left">
+            <p>株式会社 QoL 合同会社</p>
+            <p>Tel: 072-649-2610</p>
+            <p>〒568-0097 大阪府茨木市桑原1214</p>
+            <br><h3>                © 2024 QoL 合同会社. All rights reserved.
+            </h3> </br>
+        </div>
+        <ul class="footer-links">
+            <li><a href="Homepage.html">ホーム</a></li>
+            <li><a href="Business.html">事業内容</a></li>
+            <li><a href="Lineup.html">取扱いラインナップ</a></li>
+            <li><a href="Company.html">会社概要</a></li>
+            <li><a href="News.html">お知らせ</a></li>
+            <li><a href="Contact.html">お問い合わせ</a></li>
+            
+        </ul>
+        </div>
+    </footer>
+</body>
+</html>

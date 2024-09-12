@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QoL 合同会社 - Website Design</title>
+
+    <!-- Google Fonts Integration -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General body styling with Lato font */
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Header section */
+        header {
+            background: white;
+            padding: 1rem 3rem; /* Adjust for uniform padding */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+        /* Logo styling */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #2e7d32;
+        }
+
+        .logo-text p {
+            font-family: 'Lato', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: #666;
+        }
+
+        /* Navigation bar */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem; /* Adjust the gap for uniform spacing */
+            margin-left: 50px;
+        }
+
+        .nav-links li a {
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+            color: #2e7d32; /* Green for links */
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        /* Active link styling */
+        .nav-links li a.active {
+            color: #388e3c;
+        }
+
+        .nav-links li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #388e3c;
+        }
+
+        .nav-links li a:hover {
+            color: #388e3c;
+        }
+
+        /* Contact button styling */
+        .contact-btn {
+            background-color: #388e3c;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: #2e7d32;
+        }
+
+                /* Hero Section for Business */
+        .lineup-hero {
+            height: 50vh;
+            background: url('green.jpg') no-repeat center center/cover; /* Use the image you uploaded as the background */
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff; /* Green text color */
+            position: relative;
+        }
+
+        /* Add a semi-transparent overlay on the background */
+        .lineup-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3); /* Dark overlay */
+            z-index: 1;
+        }
+
+        .lineup-hero h1 {
+            font-size: 3rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            z-index: 1;
+            margin-top: 5rem;
+        }
+                /* Breadcrumb */
+                .breadcrumb {
+            margin: 2rem 2rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            color: #388e3c;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+            color: #2e7d32;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        /* Line Up Section */
+        .lineup-section {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 2rem;
+        }
+
+        .lineup-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            color: #2e7d32;
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .product-section {
+            margin-bottom: 4rem;
+        }
+
+        .product-section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+
+        .category-image {
+            width: 60%;
+            height: 300px;
+            object-fit: cover; /* Ensure uniform size without distortion */
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-list {
+            margin-top: 1rem;
+            padding-left: 0;
+        }
+
+        .product-list li {
+            list-style: none;
+            background-color: #ffffff;
+            margin-bottom: 0.5rem;
+            padding: 0.75rem 0.5rem;
+            border-radius: 3px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .product-list li:hover {
+            background-color: #f4f4f4;
+        }
+        /* Footer Section */
+        footer {
+            background-color: #2e7d32; /* Dark green background */
+            color: white;
+            padding: 3rem 2rem;
+            text-align: left;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-left {
+            font-size: 1rem;
+        }
+
+        .footer-left p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .news-items {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .news-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="QoL 合同会社 Logo">
+                <div class="logo-text">合同会社
+                    <p>Quality of Life</p>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="Business.html">Business</a></li>
+                <li><a href="Lineup.html" class="active">Line Up</a></li>
+                <li><a href="Company.html">Company</a></li>
+                <li><a href="News.html">News</a></li>
+            </ul>
+            <a href="Contact.html">
+                <button class="contact-btn">Contact</button>
+            </a>
+        </div>
+    </header>
+
+    <!-- Lineup Hero Section -->
+    <section class="lineup-hero">
+        <h1>Line Up / 取り扱いラインナップ
+
+        </h1>
+    </section>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb">
+        <a href="Homepage.html">ホーム</a> > 事業内容
+    </div>
+
+    <!-- Line Up Section -->
+    <section class="lineup-section">
+        <h2>Our Products 
+            <br>-当社の製品-</br>
+        </h2>
+
+        
+        <!-- Product Section 1 -->
+        <section id="product1" class="product-section">
+            <h3>紙製品 / 日用品全般</h3>
+            <img class="category-image" src="tissue.jpg" alt="Product Category 1">
+            <ul class="product-list">
+                <li>トイレットペーパー
+                </li>
+                <li>ペーパータオル
+                </li>
+                <li>ティッシュペーパー
+                </li>
+                <li>キッチンペーパー
+                </li>
+            </ul>
+        </div>
+        </section>
+
+        <!-- Product Section 2 -->
+        <section id="product2" class="product-section">
+            <h3>衛生用品 / 介護用品</h3>
+            <img class="category-image" src="wheelchair.jpg" alt="Product Category 2">
+            <ul class="product-list">
+                <li>車いす
+                </li>
+                <li>大人用紙おむつ
+                </li>
+                <li>生理理用品
+                </li>
+                <li>プラスチック手袋
+                </li>
+            </ul>
+        </div>
+        </section>
+        <!-- Product Section 1 -->
+        <section id="product3" class="product-section">
+            <h3>ボディケア</h3>
+            <img class="category-image" src="shampoo.jpg" alt="Product Category 1">
+            <ul class="product-list">
+                <li>シャワージェル</li>
+                <li>シャンプー</li>
+                <li>歯磨き粉</li>
+                <li>クレンザー</li>
+            </ul>
+        </div>
+        </section>
+        <!-- Product Section 2 -->
+        <section id="product4" class="product-section">
+            <h3>医療製品</h3>
+            <img class="category-image" src="medical.jpg" alt="Product Category 2">
+            <ul class="product-list">
+                <li>絆創膏</li>
+                <li>フェイスマスク</li>
+                <li>温度計</li>
+                <li>医療用綿</li>
+            </ul>
+        </div>
+        </section>
+    </section>
+       <!-- Footer Section -->
+   <footer>
+    <div class="footer-container">
+        <div class="footer-left">
+            <p>株式会社 QoL 合同会社</p>
+            <p>Tel: 072-649-2610</p>
+            <p>〒568-0097 大阪府茨木市桑原1214</p>
+            <br><h3>© 2024 QoL 合同会社. All rights reserved.
+            </h3> </br>
+        </div>
+        <ul class="footer-links">
+            <li><a href="Homepage.html">ホーム</a></li>
+            <li><a href="Business.html">事業内容</a></li>
+            <li><a href="Lineup.html">取扱いラインナップ</a></li>
+            <li><a href="Company.html">会社概要</a></li>
+            <li><a href="News.html">お知らせ</a></li>
+            <li><a href="Contact.html">お問い合わせ</a></li>
+        </ul>
+        </div>
+    </footer>
+</body>
+</html>
+
